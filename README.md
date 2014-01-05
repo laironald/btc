@@ -8,7 +8,8 @@ btc
  * Redis
  * Apache2
  * SciPy
- * IPython + Friends (matplotlib, numpy, scipy, pandas)
+ * IPython + Friends (matplotlib 1.1.1, numpy 1.6.1, scipy 0.9.0, pandas 0.12.0)
+
 
 
 ### Install
