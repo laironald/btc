@@ -10,7 +10,12 @@ btc
  * SciPy
  * IPython + Friends (matplotlib 1.1.1, numpy 1.6.1, scipy 0.9.0, pandas 0.12.0)
 
+### Coin Apps
 
+ * Kraken (advanced trading platform)
+ * Coinbase (easiest way to get $ into BTC)
+ * BTC-E (shady bulgarian website, with alt currency exposure)
+ * Coin Ticker (iPhone app for Crypto portfolio tracking)
 
 ### Install
 
