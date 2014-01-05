@@ -1,0 +1,5 @@
+redis
+ipython
+numpy
+pandas
+scipy
