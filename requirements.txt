@@ -3,3 +3,6 @@ ipython
 numpy
 pandas
 scipy
+
+keen
+sendgrid
