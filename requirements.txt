@@ -6,3 +6,7 @@ scipy
 
 keen
 sendgrid
+flask
+
+Flask-Scss
+sqlalchemy
