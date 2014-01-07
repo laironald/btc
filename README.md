@@ -9,6 +9,8 @@ btc
  * Apache2
  * SciPy
  * IPython + Friends (matplotlib 1.1.1, numpy 1.6.1, scipy 0.9.0, pandas 0.12.0)
+ * App: Flask, Scss, SQLAlchemy
+ * Bootstrap, AngularJS, jQuery, underscore.js
 
 ### Coin Apps
 
@@ -25,13 +27,19 @@ sudo apt-get install -y git
 
 sudo apt-get install -y python-pip
 sudo apt-get install -y python-matplotlib
-
 sudo apt-get install -y redis-server
 
 sudo pip install -r requirements.txt --upgrade
 ```
 
-Note: easy Install using `go.sh` in the `defaults` directory.
+### Launch the App
+```
+python app.py
+```
+
+Head to your browser: localhost:5000
+
+# Bonus
 
 ### Setup VirtualBox Shared Folders
 
