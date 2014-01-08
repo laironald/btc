@@ -11,6 +11,8 @@ btc
  * IPython + Friends (matplotlib 1.1.1, numpy 1.6.1, scipy 0.9.0, pandas 0.12.0)
  * App: Flask, Scss, SQLAlchemy
  * Bootstrap, AngularJS, jQuery, underscore.js
+ * IPython Notebook: [https://btc.goideas.org:8888/](https://btc.goideas.org:8888/) -- password:btc
+ ** Gotchas: don't use apt-get to install IPython + Friends
 
 ### Data Sources
 
