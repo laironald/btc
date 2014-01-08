@@ -12,6 +12,15 @@ btc
  * App: Flask, Scss, SQLAlchemy
  * Bootstrap, AngularJS, jQuery, underscore.js
 
+### Data Sources
+
+ * [Bitcoin charts Markets API](http://bitcoincharts.com/about/markets-api/)
+
+### Charts
+
+ * [Bitcoinwidsom](http://bitcoinwisdom.com)
+ * [Bitcoinity](http://bitcoinity.org/markets)
+
 ### Coin Apps
 
  * Kraken (advanced trading platform)
