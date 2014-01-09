@@ -16,7 +16,7 @@
     {% endif %}
     {% block specific_stylesheets %}{% endblock %}
   </head>
-  <body id="{{ controller }}" class="{{ method }}">
+  <body id="{{ controller }}" class="{{ method }}" data-ng-controller="{{ method.capitalize() }}Controller">
     {% raw %}{% endraw %}
     {% block navbar %}
     {% endblock %}
@@ -32,10 +32,12 @@
     {% block footer %}
     {% endblock %}
 
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
+    <script src="//code.angularjs.org/1.2.7/angular.min.js"></script>
+    <script src="//code.angularjs.org/1.2.7/angular-route.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="/js/controllers/{{ controller }}_controller.js"></script>
     {% block specific_javascript %}
     {% endblock %}
   </body>

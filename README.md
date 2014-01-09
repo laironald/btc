@@ -3,14 +3,15 @@ btc
 
 ### Environment
 
- * Ubuntu 12.04 LTS
+ * Ubuntu 13.10
  * Python 2.7
  * Redis
  * Apache2
  * SciPy
- * IPython + Friends (matplotlib 1.1.1, numpy 1.6.1, scipy 0.9.0, pandas 0.12.0)
+ * IPython + Friends (matplotlib 1.2.1, numpy 1.7.1, scipy 0.12.0, pandas 0.12.0)
  * App: Flask, Scss, SQLAlchemy
  * Bootstrap, AngularJS, jQuery, underscore.js
+ * IPython Notebook: [https://btc.goideas.org:8888/](https://btc.goideas.org:8888/) -- password:btc
 
 ### Data Sources
 
@@ -40,6 +41,16 @@ sudo apt-get install -y redis-server
 
 sudo pip install -r requirements.txt --upgrade
 ```
+
+### Install Gotchas (pandas & scipy)
+
+cython must be 0.17+ (by default, somehow cython 0.15 is installed)
+For Ubuntu 13.10
+
+```
+sudo apt-get install -y python-numpy python-scipy python-pandas
+```
+
 
 ### Launch the App
 ```

@@ -1,5 +1,44 @@
 {% extends "layouts/app.html" %}
 
+{% block page_title %}
+	Bitkids
+{% endblock %}
+
+{% block navbar %}
+	{% raw %}
+	<nav class="navbar navbar-default" role="navigation">
+	  <div class="navbar-header">
+	    <a class="navbar-brand" href="#">Bitkids</a>
+	  </div>
+	  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	    <ul class="nav navbar-nav">
+	      <li data-ng-class="{active:(page == 'home')}">
+	      	<a data-ng-click="page = 'home'" href="#/">Home</a>
+	      </li>
+	      <li data-ng-class="{active:(page == 'user')}">
+	      	<a data-ng-click="page = 'user'" href="#/user">User</a>
+	      </li>
+	      <li data-ng-class="{active:(page == 'action')}">
+	      	<a data-ng-click="page = 'action'" href="#/action">Action</a>
+	      </li>
+	      <li data-ng-class="{active:(page == 'analysis')}">
+	      	<a data-ng-click="page = 'analysis'" href="#/analysis">Analysis</a>
+	      </li>
+	    </ul>
+	    <ul class="nav navbar-nav navbar-right">
+	      <li><a href="#">Name</a></li>
+	      <li class="dropdown">
+	        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Links <b class="caret"></b></a>
+	        <ul class="dropdown-menu">
+	        	<li data-ng-repeat="link in links"><a data-ng-href="{{ link.href }}" target="_blank">{{ link.name }}</a></li>
+	        </ul>
+	      </li>
+	    </ul>
+	  </div>
+	</nav>
+	{% endraw %}
+{% endblock %}
+
 {% block container %}
-	- hi -
+	<div data-ng-view></div>
 {% endblock %}
