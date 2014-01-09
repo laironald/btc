@@ -116,7 +116,6 @@ sudo service apache2 restart
 ```
 sudo pip install py
 
-```
 from IPython.lib import passwd
 passwd("btc")
 ```
