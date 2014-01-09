@@ -105,11 +105,15 @@ from app import app as application
 
   * Create a profile for the server `ipython profile create nbserver`
   * Create a self-signed certificate file `openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem`
+  * Install Python dependencies `sudo pip install pyzmq tornado`
   * Create a password & save the SHA hash
 
 ```
+sudo pip install py
+
+```
 from IPython.lib import passwd
-passwd("storefront")
+passwd("btc")
 ```
 
   * Configure the notebook profile `~/.ipython/profile_nbserver/ipython_notebook_config.py`
@@ -123,6 +127,8 @@ c.NotebookApp.open_browser = False
 c.NotebookApp.password = u'[your hashed password]'
 # It's a good idea to put it on a known, fixed port
 c.NotebookApp.port = 8888
+# Optional
+c.FileNotebookManager.notebook_dir = u'/home/ubuntu/btc/nbook'
 ```
 
   * Launch the IPython Notebook: `ipython notebook --profile=nbserver`
