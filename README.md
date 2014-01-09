@@ -99,7 +99,7 @@ from app import app as application
 
   * Enable the site
 
-```
+``` 
 sudo a2ensite btc
 sudo service apache2 restart
 ```
