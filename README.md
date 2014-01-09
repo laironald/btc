@@ -37,20 +37,11 @@ sudo apt-get install -y git
 
 sudo apt-get install -y python-pip
 sudo apt-get install -y python-matplotlib
+sudo apt-get install -y python-numpy python-scipy python-pandas
 sudo apt-get install -y redis-server
 
 sudo pip install -r requirements.txt --upgrade
 ```
-
-### Install Gotchas (pandas & scipy)
-
-cython must be 0.17+ (by default, somehow cython 0.15 is installed)
-For Ubuntu 13.10
-
-```
-sudo apt-get install -y python-numpy python-scipy python-pandas
-```
-
 
 ### Launch the App
 ```
