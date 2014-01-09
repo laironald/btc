@@ -1,5 +1,6 @@
 redis
 ipython
+ipython-notebook
 numpy
 pandas
 scipy
