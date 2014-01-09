@@ -41,7 +41,7 @@ app.controller("IndexController", ['$scope', function($scope) {
 	}];
 }]);
 
-app.controller("HomeController", ['$scope', function($scope) {
+app.controller("HomeController", ['$scope', '$rootScope', function($scope, $rootScope) {
 }]);
 
 app.controller("UserController", ['$scope', function($scope) {
