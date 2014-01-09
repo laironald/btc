@@ -37,20 +37,11 @@ sudo apt-get install -y git
 
 sudo apt-get install -y python-pip
 sudo apt-get install -y python-matplotlib
+sudo apt-get install -y python-numpy python-scipy python-pandas
 sudo apt-get install -y redis-server
 
 sudo pip install -r requirements.txt --upgrade
 ```
-
-### Install Gotchas (pandas & scipy)
-
-cython must be 0.17+ (by default, somehow cython 0.15 is installed)
-For Ubuntu 13.10
-
-```
-sudo apt-get install -y python-numpy python-scipy python-pandas
-```
-
 
 ### Launch the App
 ```
@@ -75,32 +66,28 @@ sudo apt-get install -y apache2
 sudo apt-get install -y libapache2-mod-wsgi
 ```
 
-Add the code below to the the Apache default `sudo pico /etc/apache2/sites-available/default`.
+Add the code below to the Apache default `sudo pico /etc/apache2/sites-available/btc.conf`.
 
 ```
 <VirtualHost *:80>
-    ServerAdmin webmaster@localhost
 
-    ...
+    ServerName btc.goideas.org
+    ServerAdmin btc@goideas.org
 
-    WSGIDaemonProcess btc user=www-data group=www-data threads=5
     WSGIScriptAlias / /var/www/btc/start.wsgi
-
     <Directory /var/www/btc>
-        WSGIProcessGroup btc
-        WSGIApplicationGroup %{GLOBAL}
         Order deny,allow
         Allow from all
     </Directory>
 
-    ...
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    LogLevel warn
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
 
 </VirtualHost>
 ```
 
-#### Sample start.wsgi file for Apache2
-
- * Place file in `/var/www/btc` (or equivalent)
+ * Place file in `/var/www/btc/start.wsgi`
  * make sure to reference the path of the app
 
 ```
@@ -110,15 +97,28 @@ sys.path.append("/home/ubuntu/btc")
 from app import app as application
 ```
 
+  * Enable the site
+
+```
+sudo a2ensite btc
+sudo service apache2 restart
+```
+
+  * Some basic (guidance)[https://www.digitalocean.com/community/articles/how-to-deploy-a-flask-application-on-an-ubuntu-vps]
+
 ### Setup Ipython Notebook (Optional)
 
   * Create a profile for the server `ipython profile create nbserver`
   * Create a self-signed certificate file `openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem`
+  * Install Python dependencies `sudo pip install pyzmq tornado`
   * Create a password & save the SHA hash
 
 ```
+sudo pip install py
+
+```
 from IPython.lib import passwd
-passwd("storefront")
+passwd("btc")
 ```
 
   * Configure the notebook profile `~/.ipython/profile_nbserver/ipython_notebook_config.py`
@@ -132,6 +132,8 @@ c.NotebookApp.open_browser = False
 c.NotebookApp.password = u'[your hashed password]'
 # It's a good idea to put it on a known, fixed port
 c.NotebookApp.port = 8888
+# Optional
+c.FileNotebookManager.notebook_dir = u'/home/ubuntu/btc/nbook'
 ```
 
   * Launch the IPython Notebook: `ipython notebook --profile=nbserver`
