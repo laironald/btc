@@ -21,8 +21,7 @@ app.config(['$routeProvider', function($routeProvider) {
 }]);
 
 
-app.controller("IndexController", ['$scope', function($scope) {
-	$scope.page = "home";
+app.controller("IndexController", ['$scope', '$rootScope', function($scope, $rootScope) {
 	$scope.links = [{
 		href: "https://github.com/laironald/btc",
 		name: "GitHub"
@@ -39,16 +38,23 @@ app.controller("IndexController", ['$scope', function($scope) {
 		href: "http://coindesk.com",
 		name: "Coindesk"
 	}];
+	$rootScope.$on("CHANGE_PAGE", function(evt, args) {
+		$scope.page = args.page;
+	});
 }]);
 
 app.controller("HomeController", ['$scope', '$rootScope', function($scope, $rootScope) {
+	$rootScope.$broadcast("CHANGE_PAGE", { page: "home" });
 }]);
 
-app.controller("UserController", ['$scope', function($scope) {
+app.controller("UserController", ['$scope', '$rootScope', function($scope, $rootScope) {
+	$rootScope.$broadcast("CHANGE_PAGE", { page: "user" });
 }]);
 
-app.controller("ActionController", ['$scope', function($scope) {
+app.controller("ActionController", ['$scope', '$rootScope', function($scope, $rootScope) {
+	$rootScope.$broadcast("CHANGE_PAGE", { page: "action" });
 }]);
 
-app.controller("AnalysisController", ['$scope', function($scope) {
+app.controller("AnalysisController", ['$scope', '$rootScope', function($scope, $rootScope) {
+	$rootScope.$broadcast("CHANGE_PAGE", { page: "analysis" });
 }]);
