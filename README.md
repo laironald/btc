@@ -59,6 +59,13 @@ Head to your browser: localhost:5000
   * Restart Ubuntu
   * `ln -s /directory shortcut` to create a shortcut to the directory
 
+### Install MySQL
+
+```
+sudo apt-get install -y mysql-server
+sudo apt-get install -y python-mysqldb
+```
+
 ### Apache for Flask (Optional)
 
 ```
