@@ -1,6 +1,7 @@
 from flask import Flask, render_template
-from flask import request, session
+from flask import request, session, url_for
 from flask.ext.scss import Scss
+from flask.ext.login import LoginManager, login_user
 
 import base
 config = base.get_config()
@@ -9,11 +10,18 @@ config = base.get_config()
 from base.controllers.static_pages import static_pages
 
 app = Flask(__name__, static_folder='static', static_url_path='')
+app.config.from_object('config')
 app.register_blueprint(static_pages)
 app.debug = True
 app.secret_key = config.get("global").get("secret")
 
 Scss(app, static_dir='static', asset_dir='assets')
+login = LoginManager()
+login.init_app(app)
+
+@login.user_loader
+def load_user(userid):
+    return User.get(userid)
 
 # url_for('static', filename='all.css')
 

@@ -7,6 +7,9 @@ scipy
 keen
 sendgrid
 flask
+pytz
 
-Flask-Scss
 sqlalchemy
+Flask-Scss
+Flask-Login
+Flask-WTF
