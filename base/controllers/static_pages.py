@@ -10,12 +10,6 @@ def index():
     method = "index"
     return render_template('views/index.html', method=method, controller=controller)
 
-@static_pages.route('/index_user.html')
-def index_user():
-    method = "index_user"
-    loginform = LoginForm()
-    return render_template('views/index_user.html', method=method, controller=controller, form=loginform)
-
 @static_pages.route('/<page>')
 def index_page(page):
     method = page

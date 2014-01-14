@@ -25,6 +25,17 @@
       <div class="row-fluid">
         <div class="col-md-12">
           {% block container %}{% endblock %}
+
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul>
+            {% for message in messages %}
+                <li>{{ message }} </li>
+            {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+
         </div>
       </div>
     </div>
